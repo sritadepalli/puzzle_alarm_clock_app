@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alarm Clock with Puzzles</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Alarm Clock with Puzzles</h1>
+
+        <div id="alarm-settings">
+            <h2>Set Alarm</h2>
+            <label for="alarm-time">Alarm Time:</label>
+            <input type="time" id="alarm-time">
+            
+            <label for="snooze-time">Snooze Time (minutes):</label>
+            <input type="number" id="snooze-time" min="1" value="5">
+
+            <label for="ringtone">Select Ringtone:</label>
+            <select id="ringtone">
+                <option value="ringtone1.mp3">Ringtone 1</option>
+                <option value="ringtone2.mp3">Ringtone 2</option>
+                <option value="ringtone3.mp3">Ringtone 3</option>
+                <option value="ringtone4.mp3">Ringtone 4</option>
+                <option value="ringtone5.mp3">Ringtone 5</option>
+            </select>
+
+            <label for="question-type">Select Question Type:</label>
+            <select id="question-type">
+                <option value="math">Mathematical</option>
+                <option value="general">General Knowledge</option>
+                <option value="random">Random</option>
+            </select>
+
+            <label for="difficulty-level">Difficulty Level (1-5):</label>
+            <input type="number" id="difficulty-level" min="1" max="5" value="1">
+
+            <button id="set-alarm">Set Alarm</button>
+        </div>
+
+        <div id="puzzle" style="display:none;">
+            <h2>Solve the Puzzle!</h2>
+            <div id="puzzle-question"></div>
+            <input type="text" id="puzzle-answer" placeholder="Your Answer">
+            <button id="submit-answer">Submit</button>
+        </div>
+
+        <audio id="alarm-sound" src="ringtone1.mp3" preload="auto"></audio>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+
